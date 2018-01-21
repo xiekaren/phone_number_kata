@@ -13,7 +13,7 @@ defmodule PhoneNumberKata do
 
   """
   def isConsistent(numbers) do
-    Enum.all?(numbers, fn(s) -> isPrefix(s, numbers) end)
+    Enum.all?(numbers, fn(s) -> !isPrefix(s, numbers) end)
   end
 
   def isPrefix(number, list) do
