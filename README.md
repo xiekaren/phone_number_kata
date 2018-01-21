@@ -1,21 +1,13 @@
 # PhoneNumberKata
 
-**TODO: Add description**
-
-## Installation
-
-If [available in Hex](https://hex.pm/docs/publish), the package can be installed
-by adding `phone_number_kata` to your list of dependencies in `mix.exs`:
-
-```elixir
-def deps do
-  [
-    {:phone_number_kata, "~> 0.1.0"}
-  ]
-end
+Given a list of phone numbers, determine if it is consistent.  
+In a consistent phone list no number is a prefix of another. For example:  
 ```
+  Bob 91 12 54 26  
+  Alice 97 625 992  
+  Emergency 911  
+```  
 
-Documentation can be generated with [ExDoc](https://github.com/elixir-lang/ex_doc)
-and published on [HexDocs](https://hexdocs.pm). Once published, the docs can
-be found at [https://hexdocs.pm/phone_number_kata](https://hexdocs.pm/phone_number_kata).
-
+In this case, it is not possible to call Bob because the phone exchange 
+would direct your call to the emergency line as soon as you dialled the 
+first three digits of Bob's phone number. So this list would not be consistent.
