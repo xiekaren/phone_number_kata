@@ -1,12 +1,7 @@
 defmodule PhoneNumberKata do
   def verify(namesAndNumbers) do
-    list_of_numbers = extractNumbers(namesAndNumbers)
+    list_of_numbers = NumberExtractor.extract_numbers(namesAndNumbers)
     isConsistent(list_of_numbers)
-  end
-
-  def extractNumbers(namesAndNumbers) do
-    lineBreakSeparatedNumbers = String.replace(namesAndNumbers, ~r/[^0-9\n]/, "")
-    String.split(lineBreakSeparatedNumbers, "\n\n")
   end
 
   def isConsistent(listOfNumbers) do
