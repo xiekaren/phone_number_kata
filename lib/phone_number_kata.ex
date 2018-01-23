@@ -1,23 +1,19 @@
 defmodule PhoneNumberKata do
-  def verify(namesAndNumbers) do
-    list_of_numbers = extract_numbers(namesAndNumbers)
-    is_consistent(list_of_numbers)
+  import Extract
+
+  def verify(file_path) do
+    names_and_numbers = File.stream!(file_path)
+    numbers = extract_phone_numbers(names_and_numbers)
+    is_consistent(numbers)
   end
 
-  def extract_numbers(names_and_numbers) do
-    line_break_separated_numbers = String.replace(names_and_numbers, ~r/[^0-9\n]/, "")
-    String.split(line_break_separated_numbers, "\n\n")
-  end
-
-  def is_consistent(listOfNumbers) do
-    Enum.all?(listOfNumbers, fn(number) -> 
-      !is_prefix(number, listOfNumbers -- [number]) 
-    end)
+  def is_consistent(list_of_numbers) do
+    Enum.all?(list_of_numbers, fn(number) -> !is_prefix(number, list_of_numbers -- [number]) end)
   end
 
   def is_prefix(number, list) do
     Enum.any?(list, fn(n) -> 
       String.starts_with?(n, number) 
     end)
-  end
+  end  
 end
