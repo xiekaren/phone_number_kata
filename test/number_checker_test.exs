@@ -1,6 +1,6 @@
 defmodule NumberCheckerTest do
     use ExUnit.Case
-    test "is consistent when one number is a prefix of another" do
+    test "is consistent when a number is a prefix of another" do
       assert NumberChecker.is_consistent(["91125426", "97625921", "921"]) == true
     end
   
@@ -13,6 +13,6 @@ defmodule NumberCheckerTest do
     end
   
     test "string is not a prefix of any item in the list" do
-      assert NumberChecker.is_prefix("111", ["123456", "444333"]) == false
+      assert NumberChecker.is_prefix("111", ["123456", "444111"]) == false
     end
 end
