@@ -1,6 +1,5 @@
-defmodule ExtractTest do
+defmodule ExtractorTest do
   use ExUnit.Case
-
   test "extracts numbers without symbols" do
     assert Extractor.extract_numbers(
       [
@@ -20,5 +19,4 @@ defmodule ExtractTest do
       ]
     ) == ["111222333", "444555666", "777888999"]
   end
-
 end
